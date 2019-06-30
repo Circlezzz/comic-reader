@@ -1,4 +1,12 @@
-# comic_reader2
+# comic reader
+A comic reader for .cbz and .cbr format files. 
+
+## features
+- [x] night mode
+- [x] fullscreen
+- [x] .cbz support
+- [x] .cbr support
+- [ ] .cbt support
 
 ## Project setup
 ```
@@ -14,16 +22,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
