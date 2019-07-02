@@ -1,10 +1,18 @@
 'use strict'
 
-import { app, protocol, BrowserWindow } from 'electron'
+import { app, protocol, BrowserWindow } from 'electron';
 import {
   createProtocol,
   installVueDevtools
-} from 'vue-cli-plugin-electron-builder/lib'
+} from 'vue-cli-plugin-electron-builder/lib';
+
+const ipc = require('electron').ipcMain;
+const dialog = require('electron').dialog;
+var path = require('path');
+var fs = require("fs");
+var unrar = require("node-unrar-js");
+const archiveType = require('archive-type');
+const readChunk = require('read-chunk');
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -39,24 +47,6 @@ function createWindow() {
     win = null
   })
 }
-
-
-
-const ipc = require('electron').ipcMain
-const dialog = require('electron').dialog
-var Zip = require("adm-zip");
-
-var path = require('path');  /*nodejs自带的模块*/
-
-var fs = require("fs")
-
-var unrar = require("node-unrar-js");
-
-var base64arraybuffer = require("base64-arraybuffer");
-
-const archiveType = require('archive-type');
-const readChunk = require('read-chunk');
-
 
 ipc.on('open-file-dialog', function (event, emitter) {
   dialog.showOpenDialog({
